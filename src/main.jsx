@@ -3,17 +3,19 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Components/Root.jsx";
-import PagesToRead from "./PagesToRead.jsx";
-import ListedBooks from "./ListedBooks.jsx";
-import Home from "./Home.jsx";
+import PagesToRead from "./Components/PagesToRead.jsx";
+import ListedBooks from "./Components/ListedBooks.jsx";
+import Home from "./Components/Home.jsx";
+import ErrorPage from "./Components/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home></Home>,
       },
       {

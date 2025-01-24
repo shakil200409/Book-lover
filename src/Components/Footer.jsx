@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-900 text-white mt-10 pt-5 md:pt-10 px-5">
-      <div className="flex items-center justify-between md:px-36">
+    <div className="bg-slate-900 text-white mt-10 p-5 md:p-10">
+      <div className="flex items-center justify-between">
         <h2 className="font-semibold text-lg text-center md:text-xl">
           Book Vibe
         </h2>
