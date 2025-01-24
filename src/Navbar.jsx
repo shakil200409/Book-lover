@@ -1,10 +1,44 @@
 import { Link } from "react-router-dom";
-import { IoMenuSharp } from "react-icons/io5";
+import { IoMenuSharp, IoCloseSharp } from "react-icons/io5";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleMenu = () => {
+    setOpen(!open);
+  };
   return (
-    <nav className="font-WorkSans flex justify-between items-center pt-5">
-      <IoMenuSharp className="text-2xl md:hidden" />
+    <nav className="relative font-WorkSans flex justify-between items-center pt-5">
+      <IoMenuSharp
+        onClick={handleMenu}
+        className={`text-2xl md:hidden transition delay-150 duration-300  ${
+          open === true ? "inline" : "hidden"
+        } `}
+      />
+      <IoCloseSharp
+        onClick={handleMenu}
+        className={`text-2xl md:hidden transition delay-150 duration-300  text-green-600  ${
+          open === true ? "hidden" : "inline"
+        } `}
+      />
+      <div
+        className={`absolute -bottom-32 duration-1000 z-50 ${
+          open === true ? "-left-44" : "-left-5"
+        }`}
+      >
+        <ul className="md:text-lg flex flex-col space-y-3.5 py-3.5 md:hidden bg-green-600 text-white rounded-r-lg">
+          <Link className="px-5" to="/home">
+            Home
+          </Link>
+          <Link className="px-5" to="/listedBooks">
+            Listed Books
+          </Link>
+          <Link className="px-5" to="/pagesToRead">
+            Pages to Read
+          </Link>
+        </ul>
+      </div>
       <h3 className=" font-bold text-2xl">Book Vibe</h3>
       <ul className="text-lg md:flex items-center gap-10 hidden">
         <Link
