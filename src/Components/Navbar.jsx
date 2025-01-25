@@ -32,7 +32,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <nav className="relative font-WorkSans flex justify-between items-center pt-5 px-5 md:px-10  ">
+    <nav className="relative font-WorkSans flex justify-between items-center pt-5">
       <IoMenuSharp
         onClick={handleMenu}
         className={`text-2xl md:hidden transition delay-150 duration-300  ${
