@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoMenuSharp, IoCloseSharp } from "react-icons/io5";
 import { useState } from "react";
 
@@ -9,26 +9,26 @@ const Navbar = () => {
     setOpen(!open);
   };
 
-  const links = (
+  const navLinks = (
     <>
-      <Link
+      <NavLink
         className="px-5 py-2 border border-transparent hover:border-green-600 rounded-lg hover:text-green-600"
         to="/"
       >
         Home
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         className="px-5 py-2 border border-transparent hover:border-green-600 rounded-lg hover:text-green-600"
         to="/listedBooks"
       >
         Listed Books
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         className="px-5 py-2 border border-transparent hover:border-green-600 rounded-lg hover:text-green-600"
         to="/pagesToRead"
       >
         Pages to Read
-      </Link>
+      </NavLink>
     </>
   );
   return (
@@ -51,11 +51,13 @@ const Navbar = () => {
         }`}
       >
         <ul className="md:text-lg flex flex-col py-4 md:hidden bg-green-600 text-white rounded-r-lg">
-          {links}
+          {navLinks}
         </ul>
       </div>
       <h3 className=" font-bold text-2xl">Book Vibe</h3>
-      <ul className="text-lg md:flex items-center gap-10 hidden ">{links}</ul>
+      <ul className="text-lg md:flex items-center gap-10 hidden ">
+        {navLinks}
+      </ul>
       <div className="font-semibold md:text-lg flex gap-5">
         <button className="px-5 py-2 bg-green-600 text-white rounded-lg">
           Sign In
