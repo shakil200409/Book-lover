@@ -58,11 +58,11 @@ const Navbar = () => {
       <ul className="text-lg md:flex items-center gap-10 hidden ">
         {navLinks}
       </ul>
-      <div className="font-semibold md:text-lg flex gap-5">
-        <button className="px-5 py-2 bg-green-600 text-white rounded-lg">
+      <div className="font-semibold flex gap-5">
+        <button className="btn px-5 py-2 bg-green-600 text-white md:text-lg rounded-lg">
           Sign In
         </button>
-        <button className="px-5 py-2 bg-blue-400 text-white rounded-lg hidden md:inline">
+        <button className="btn px-5 py-2 bg-blue-400 text-white md:text-lg rounded-lg hidden md:inline-flex">
           Sign Up
         </button>
       </div>

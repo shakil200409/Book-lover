@@ -1,10 +1,12 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { addToReadList, addToWishList } from "../Utilities/addToDB";
 
 const BookDetails = () => {
   const { bookId } = useParams();
+  const id = parseInt(bookId);
   const data = useLoaderData();
-  const book = data.find((book) => book.bookId === parseInt(bookId));
+  const book = data.find((book) => book.bookId === id);
   const {
     image,
     bookName,
@@ -17,8 +19,6 @@ const BookDetails = () => {
     yearOfPublishing,
     rating,
   } = book;
-
-  console.log(book);
 
   return (
     <div className="flex flex-col lg:flex-row gap-10 mt-10">
@@ -52,24 +52,36 @@ const BookDetails = () => {
           ))}
         </div>
         <div className="my-5">
-          <p className="font-semibold">
-            <span className="font-normal text-gray-500">Number of Pages: </span>
-            {totalPages}{" "}
-          </p>
-          <p className="font-semibold">
-            <span className="font-normal text-gray-500">Publisher: </span>
-            {publisher}{" "}
-          </p>
-          <p className="font-semibold">
-            <span className="font-normal text-gray-500">
-              Year of Publishing::{" "}
-            </span>
-            {yearOfPublishing}{" "}
-          </p>
-          <p className="font-semibold">
-            <span className="font-normal text-gray-500">Rating: </span>
-            {rating}{" "}
-          </p>
+          <div className="grid grid-cols-2">
+            <span className="text-gray-500">Number of Pages: </span>
+            <span className="font-semibold">{totalPages}</span>
+          </div>
+          <div className="grid grid-cols-2">
+            <span className="text-gray-500">Publisher: </span>
+            <span className="font-semibold">{publisher}</span>
+          </div>
+          <div className="grid grid-cols-2">
+            <span className="text-gray-500">Year of Publishing: </span>
+            <span className="font-semibold">{yearOfPublishing}</span>
+          </div>
+          <div className="grid grid-cols-2">
+            <span className="text-gray-500">Rating: </span>
+            <span className="font-semibold">{rating} </span>
+          </div>
+        </div>
+        <div className="flex gap-5">
+          <button
+            onClick={() => addToReadList(id)}
+            className="btn border border-gray-300 hover:border-transparent hover:bg-green-600 hover:text-white text-lg rounded-lg"
+          >
+            Read
+          </button>
+          <button
+            onClick={() => addToWishList(id)}
+            className="btn bg-blue-400 text-white text-lg rounded-lg"
+          >
+            Wishlist
+          </button>
         </div>
       </div>
     </div>
